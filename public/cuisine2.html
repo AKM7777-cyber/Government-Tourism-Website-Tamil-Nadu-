@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Cuisines of the Tamil Land</title>
+        <link rel="stylesheet" href="cuisine2.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      </head>
+      
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Regional Cuisine of Tamil Nadu</h1>
+      <p>From Kongu Nadu to Chettinad – Every Region Tells a Story</p>
+    </div>
+  </header>
+
+  <section class="content">
+    <h2>Introduction to Regional Diversity</h2>
+    <p>Tamil Nadu is not a monolithic culinary culture—it’s a patchwork of diverse flavors shaped by geography and tradition. Each region offers a unique interpretation of the Tamil palate.</p>
+    <img src="images/iddiyapam.jpeg" alt="Idiyappam and curry" />
+
+    <h2>Chettinad – Spice Central</h2>
+    <p>Known for its bold and aromatic flavors, Chettinad cuisine is famous for dishes like pepper chicken, kozhi varuval (dry chicken fry), and fragrant biryanis. It uses a rich blend of freshly ground masalas and a variety of spices like star anise, stone flower, and cinnamon.</p>
+    <img src="images/chettinad.jpeg" alt="Chettinad Curry" />
+
+    <h2>Kongu Nadu – Subtle and Earthy</h2>
+    <p>Kongu Nadu cuisine focuses on millets, pulses, and country-style cooking. Coconut, groundnuts, and gingelly oil are heavily used. A few regional favorites include Arisi Paruppu Sadam and Kongunadu Chicken Fry.</p>
+    <img src="images/kongunadu.jpg" alt="Kongu Nadu Meal" />
+
+    <h2>Madurai & Tirunelveli – Tangy & Flavorful</h2>
+    <p>Famous for their street food, both regions bring out delicious snacks and gravies. From Kothu Parotta to Halwa from Tirunelveli, these cities celebrate fusion and flair.</p>
+    <img src="images/kothuparorha.webp" alt="Kothu Parotta" />
+
+    <h2>Conclusion</h2>
+    <p>From the spice-laden Chettinad dishes to the mild and nutty flavors of Kongu Nadu, Tamil Nadu offers something unique in every bite. Discovering its regional cuisine is the best way to experience the state’s cultural heartbeat.</p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+<button id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+  // Fade-in on scroll
+  document.addEventListener('DOMContentLoaded', function () {
+    const faders = document.querySelectorAll('section, .hero, footer, img, h2, p');
+
+    const options = {
+      threshold: 0.1,
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(element => {
+      element.classList.add('fade-in');
+      appearOnScroll.observe(element);
+    });
+  });
+
+  // Back to Top Button
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>

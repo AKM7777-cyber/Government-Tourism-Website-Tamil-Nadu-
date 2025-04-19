@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Cuisines of the Tamil Land</title>
+        <link rel="stylesheet" href="cuisine1.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      </head>
+      
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Sweet Savouries from Tamil Nilam</h1>
+      <p>Traditional Treats from the Land of Temples</p>
+    </div>
+  </header>
+
+  <section class="content">
+    <h2>A Sweet Heritage</h2>
+    <p>Tamil Nadu’s sweet treats are more than just desserts—they’re part of rituals, festivals, and family legacies. From jaggery to coconut, rice flour to ghee, every ingredient has a cultural significance.</p>
+    <img src="images/modak.jpg" alt="Modakam" />
+
+    <h2>Tirunelveli Halwa</h2>
+    <p>The pride of Tirunelveli, this glossy wheat halwa is made using wheat milk, ghee, and sugar. Known for its stretchy texture and heavenly taste, it’s best enjoyed hot from the stores along the banks of Tamirabarani River.</p>
+    <img src="images/halwa.jpg" alt="Tirunelveli Halwa" />
+
+    <h2>Kovilpatti Kadalai Mittai</h2>
+    <p>A crunchy peanut candy made using jaggery syrup, this snack has earned a GI tag and is popular during temple festivals and village fairs. It's both sweet and wholesome.</p>
+    <img src="images/kadalai.webp" alt="Kadalai Mittai" />
+
+    <h2>Kalkandu Pongal & Kozhukattai</h2>
+    <p>Both are integral to temple offerings. Kozhukattai is a steamed rice dumpling filled with coconut and jaggery, while kalkandu pongal (sugar candy rice) is slow-cooked and served as prasadam.</p>
+    <img src="images/pongal.jpg" alt="Pongal Sweet" />
+
+    <h2>More to Try</h2>
+    <ul>
+      <li>Adirasam – A deep-fried jaggery doughnut-like sweet</li>
+      <li>Mysore Pak – A ghee-loaded soft fudge from southern Tamil Nadu</li>
+      <li>Jangiri – A bright orange swirl soaked in sugar syrup</li>
+      <li>Therattipal – A slow-cooked condensed milk dessert from Madurai</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>The sweets of Tamil Nadu are not only diverse in ingredients and textures, but also in emotions and memories. Every region has a specialty, and every festival has its flavor.</p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+// Fade-in on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll("section, .hero, footer, img, h2, p, ul");
+
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const fadeInOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  fadeElements.forEach(el => {
+    el.classList.add("fade-in");
+    fadeInOnScroll.observe(el);
+  });
+});
+
+// Back to Top Button
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+
+</body>
+</html>

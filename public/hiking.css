@@ -1,0 +1,211 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f9f3;
+  color: #2c3e50;
+  line-height: 1.7;
+}
+
+/* Hero Section */
+.hero {
+  background: url('images/hiking2.jpg') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Intro Section */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+}
+.intro .content {
+  flex: 1 1 50%;
+  padding: 1.5rem;
+}
+.intro .image {
+  flex: 1 1 50%;
+  text-align: center;
+}
+.intro img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Trails Section */
+.trails {
+  background-color: #e1f4e4;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.trails h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #14532d;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #14532d;
+}
+.card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* FAQ */
+.faq {
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+}
+.faq h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #14532d;
+}
+.faq-item {
+  max-width: 700px;
+  margin: 1rem auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #e1f4e4;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faq-answer {
+  padding: 1rem;
+  background: #f9fff9;
+  display: none;
+}
+.faq-answer.open {
+  display: block;
+}
+.faq-question i {
+  transition: transform 0.3s;
+}
+.faq-question i.rotate {
+  transform: rotate(180deg);
+}
+
+/* Footer */
+.site-footer {
+  background-color: #222;
+  color: #ddd;
+  padding: 40px 20px 20px;
+  font-size: 0.95rem;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-logo h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+.footer-links h4,
+.footer-social h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+.footer-links ul {
+  list-style: none;
+}
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+.footer-links ul li a {
+  color: #ddd;
+  text-decoration: none;
+}
+.footer-links ul li a:hover {
+  text-decoration: underline;
+}
+.footer-social .social-icons a {
+  color: #f5b400;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.footer-social .social-icons a:hover {
+  color: #fff;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  color: #aaa;
+}
+
+/* Fade-In Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

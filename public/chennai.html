@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chennai - Tamil Nadu Tourism</title>
+  <link rel="stylesheet" href="chennai.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header id="navbar">
+    <h1>Welcome to Chennai</h1>
+    <p>The Cultural Capital of South India</p>
+    <button id="darkToggle">🌙</button>
+    <button id="musicToggle">🎵</button>
+  </header>
+
+  <section class="hero fade-in">
+    <img src="images/marinabeach.jpeg" alt="Aerial view of Chennai" />
+  </section>
+
+  <section class="section fade-in">
+    <h2>About Chennai</h2>
+    <p>
+      Chennai, the capital city of Tamil Nadu, is a vibrant blend of traditional culture and modern growth.
+      Known for its classical music, sandy beaches, ancient temples, and spicy cuisine, it’s a must-visit
+      destination for travelers seeking heritage and warmth.
+    </p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Top Attractions in Chennai</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/marinabeach.jpeg" alt="Marina Beach" />
+        <h3>Marina Beach</h3>
+        <p>The longest urban beach in India, famous for its sunrise views and evening walks.</p>
+      </div>
+      <div class="card">
+        <img src="images/Kapaleeshwarar.jpg" alt="Kapaleeshwarar Temple" />
+        <h3>Kapaleeshwarar Temple</h3>
+        <p>A magnificent Dravidian-style temple dedicated to Lord Shiva in Mylapore.</p>
+      </div>
+      <div class="card">
+        <img src="images/chennaimuseum.jpeg" alt="Government Museum" />
+        <h3>Government Museum</h3>
+        <p>Home to rich collections of archaeology, art, and numismatics in Egmore.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Cultural Vibes</h2>
+    <p>
+      Chennai is renowned for the Margazhi Music Festival, Bharatanatyam dance performances, and
+      traditional Carnatic concerts. Don’t miss the authentic filter coffee and the saree shopping
+      experience in T. Nagar!
+    </p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Local Delicacies</h2>
+    <img src="images/chettinad.jpeg" alt="Local Cuisine" class="food-img" />
+    <p>
+      Relish spicy Chettinad curries, crispy dosas, and sweet Pongal in one of the many iconic eateries.
+      Try Saravana Bhavan or Murugan Idli Shop for an authentic Chennai meal.
+    </p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>FAQs</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-button">When is the best time to visit Chennai?</button>
+        <div class="accordion-content">Between November and February for pleasant weather.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-button">Is Chennai safe for solo travelers?</button>
+        <div class="accordion-content">Yes, it's one of the safest metropolitan cities in India.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Tamil Taste Trails</h4>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p>📷 🐦 📘 📺</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Tamil Taste Trails. All rights reserved.</p>
+  </footer>
+
+  <button id="backToTop">↑</button>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="audio/chennai-theme.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    // Sticky Navbar
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('sticky', window.scrollY > 20);
+    });
+
+    // Scroll Animations
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const fadeInOnScroll = () => {
+      fadeIns.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', fadeInOnScroll);
+    fadeInOnScroll();
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Dark Mode Toggle
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Accordion
+    document.querySelectorAll('.accordion-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.classList.toggle('active');
+      });
+    });
+
+    // Music Toggle
+    const music = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let playing = false;
+    musicToggle.addEventListener('click', () => {
+      playing ? music.pause() : music.play();
+      playing = !playing;
+    });
+  </script>
+</body>
+</html>

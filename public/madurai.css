@@ -1,0 +1,278 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --main-color: #a93226;
+  --bg-light: #fffaf0;
+  --bg-dark: #2c3e50;
+  --text-light: #333;
+  --text-dark: #f4f4f4;
+  --accent: #f5cba7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  scroll-behavior: smooth;
+}
+
+h2 {
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Sticky Navbar */
+header {
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  color: white;
+  position: relative;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.subheading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px; /* reduced gap */
+  margin-top: 0; /* optional: if there's a large top gap */
+  color: #b33c1a;
+  text-shadow: 2px 2px 5px #888;
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  color: white;
+}
+
+
+
+/* Hero */
+.hero {
+  background: url('images/madurai-bg.jpg') no-repeat center/cover;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* About Section */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  padding: 1rem;
+}
+
+.about-img {
+  flex: 1;
+  text-align: center;
+}
+
+.about-img img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+/* Attractions Carousel */
+.attractions {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fdf2e9;
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  padding: 1rem;
+}
+
+.slide.active {
+  display: block;
+  animation: fade 1s ease-in;
+}
+
+.slide img {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 12px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #a93226;
+  color: white;
+  border: none;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Info Sections */
+.culture, .info {
+  padding: 2rem;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.info-box {
+  flex: 1 1 300px;
+  background-color: #fef5e7;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* FAQ Accordion */
+.faq {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.accordion-item {
+  margin-bottom: 1rem;
+}
+
+.accordion-header {
+  background: #a93226;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.accordion-header.open {
+  background: #922b21;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: #fff3e0;
+  padding: 0 1rem;
+}
+
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  padding: 0.7rem 1rem;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-left h3 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+/* Scroll Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adventure in Tamil Nadu</title>
+  <link rel="stylesheet" href="adventure.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <header class="adventure-hero reveal fade-in">
+    <div class="overlay">
+      <h1 class="typewriter-text">Adventure Awaits in Tamil Nadu</h1>
+      <p>Feel the adrenaline in the lap of nature</p>
+    </div>
+  </header>
+
+  <section class="intro reveal fade-in">
+    <div class="text">
+      <h2>Why Adventure?</h2>
+      <p>Tamil Nadu offers thrilling adventures from the coast to the hills. Whether you're surfing in Kovalam, trekking in the Western Ghats, or rock climbing in Gingee, there's something for every thrill-seeker.</p>
+    </div>
+    <img src="images/hiking.avif" alt="Hiking Adventure" class="zoom-scroll"/>
+  </section>
+
+  <section class="activities reveal fade-in">
+    <h2>Top Adventure Activities</h2>
+    <div class="cards">
+      <div class="card zoom-scroll">
+        <img src="images/paragliding.jpg" alt="Paragliding"/>
+        <h3>Paragliding</h3>
+        <p>Fly high above the hills of Yelagiri and enjoy breathtaking views from the sky.</p>
+      </div>
+      <div class="card zoom-scroll">
+        <img src="images/trekking.jpg" alt="Trekking"/>
+        <h3>Trekking</h3>
+        <p>Trails through Kolli Hills, Nilgiris, and more will test your endurance and reward you with scenic views.</p>
+      </div>
+      <div class="card zoom-scroll">
+        <img src="images/surfing.jpeg" alt="Surfing"/>
+        <h3>Surfing</h3>
+        <p>Ride the waves on the beaches of Kovalam and Mahabalipuram, hotspots for surfers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tips reveal fade-in">
+    <h2>Adventure Tips</h2>
+    <ul>
+      <li>Always go with certified instructors for water and aerial sports.</li>
+      <li>Carry lightweight, breathable gear.</li>
+      <li>Start early to avoid harsh sunlight, especially in the summer.</li>
+      <li>Stay hydrated and respect local wildlife and terrain.</li>
+    </ul>
+  </section>
+
+  <section class="gear reveal fade-in">
+    <h2>Recommended Gear Shops</h2>
+    <p>You can rent or buy adventure gear from shops in Chennai, Coimbatore, and Ooty. Check out Decathlon or local rental stores for equipment before you head out.</p>
+  </section>
+
+  <footer class="site-footer reveal fade-in">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll(".reveal");
+    function revealOnScroll() {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    window.dispatchEvent(new Event("scroll"));
+
+    // Scroll Progress Bar
+    const progressBar = document.createElement("div");
+    progressBar.style.position = "fixed";
+    progressBar.style.top = "0";
+    progressBar.style.left = "0";
+    progressBar.style.height = "5px";
+    progressBar.style.backgroundColor = "#0b5394";
+    progressBar.style.zIndex = "9999";
+    progressBar.style.transition = "width 0.2s ease-out";
+    document.body.appendChild(progressBar);
+    window.addEventListener("scroll", () => {
+      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      progressBar.style.width = `${scrolled}%`;
+    });
+
+    // Card Tilt Hover Effect
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        card.style.transform = `rotateY(${x * 0.05}deg) rotateX(${-y * 0.05}deg)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateY(0deg) rotateX(0deg)";
+      });
+    });
+
+    // Accordion for Adventure Tips
+    const tipsHeader = document.querySelector(".tips h2");
+    const tipsList = document.querySelector(".tips ul");
+    tipsList.style.display = "none";
+    tipsHeader.style.cursor = "pointer";
+    tipsHeader.addEventListener("click", () => {
+      tipsList.style.display = tipsList.style.display === "none" ? "block" : "none";
+    });
+
+    // Back to Top Button
+    const topBtn = document.createElement("button");
+    topBtn.textContent = "↑";
+    Object.assign(topBtn.style, {
+      position: "fixed",
+      bottom: "20px",
+      right: "20px",
+      padding: "10px 15px",
+      fontSize: "20px",
+      borderRadius: "50%",
+      border: "none",
+      backgroundColor: "#0b5394",
+      color: "#fff",
+      cursor: "pointer",
+      display: "none",
+      zIndex: "9999"
+    });
+    document.body.appendChild(topBtn);
+
+    window.addEventListener("scroll", () => {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Auto Typing Text
+    const typedText = "Welcome to the Land of Adventures!";
+    let i = 0;
+    const heroHeading = document.querySelector(".typewriter-text");
+    if (heroHeading) {
+      heroHeading.textContent = "";
+      function typeText() {
+        if (i < typedText.length) {
+          heroHeading.textContent += typedText.charAt(i);
+          i++;
+          setTimeout(typeText, 70);
+        }
+      }
+      typeText();
+    }
+
+    // Parallax
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll(".parallax").forEach(el => {
+        const speed = el.getAttribute("data-speed") || 0.5;
+        el.style.backgroundPositionY = `${window.scrollY * speed}px`;
+      });
+    });
+
+    // Zoom Scroll
+    const zoomImages = document.querySelectorAll(".zoom-scroll");
+    window.addEventListener("scroll", () => {
+      zoomImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const scale = 1 + (1 - rect.top / window.innerHeight) * 0.2;
+          img.style.transform = `scale(${scale})`;
+        }
+      });
+    });
+
+    // Fade-In on Scroll
+    const fadeElements = document.querySelectorAll(".fade-in");
+    const handleFadeIn = () => {
+      fadeElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", handleFadeIn);
+    window.addEventListener("load", handleFadeIn);
+  </script>
+</body>
+</html>

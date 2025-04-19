@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spiritual Tourism - Tamil Nadu</title>
+  <link rel="stylesheet" href="spiritual.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Add this line inside <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+  <header class="spiritual-hero">
+    <div class="overlay">
+      <h1>Spiritual Escapes</h1>
+      <p>Where divinity meets architecture in Tamil Nadu</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="text">
+      <h2>Experience Peace & Divinity</h2>
+      <p>From ancient temples to tranquil ashrams, Tamil Nadu’s spiritual landscape is rich and vibrant. Whether you're seeking inner peace, architectural marvels, or the divine presence, the temples of this region welcome all with open arms.</p>
+    </div>
+    <img src="images/ancient.jpeg" alt="Ancient temple in Tamil Nadu" />
+  </section>
+
+  <section class="temples">
+    <h2>Famous Temples to Visit</h2>
+    <div class="temple-cards">
+      <div class="temple-card">
+        <img src="images/meenakshi.jpg" alt="Meenakshi Temple" />
+        <h3>Meenakshi Amman Temple</h3>
+        <p>Located in Madurai, this architectural wonder is one of the most visited religious places in India.</p>
+      </div>
+      <div class="temple-card">
+        <img src="images/ramaswamy.jpg" alt="Ramanathaswamy Temple" />
+        <h3>Ramanathaswamy Temple</h3>
+        <p>This sacred temple on Rameswaram island is revered as a Char Dham pilgrimage destination.</p>
+      </div>
+      <div class="temple-card">
+        <img src="images/nataraja.jpg" alt="Chidambaram Temple" />
+        <h3>Nataraja Temple</h3>
+        <p>Dedicated to Lord Shiva in his dancing form, the Chidambaram Temple is a symbol of cosmic rhythm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <h2>Travel Tips</h2>
+    <ul>
+      <li>Respect temple customs and dress codes – traditional attire is often required.</li>
+      <li>Visit early morning or late evening for a peaceful experience.</li>
+      <li>Explore nearby markets for spiritual books, prayer items, and local arts.</li>
+    </ul>
+  </section>
+
+  <section class="ashrams">
+    <h2>Popular Ashrams</h2>
+    <p>Tamil Nadu is also home to serene ashrams like Ramana Maharshi Ashram in Tiruvannamalai and Auroville near Puducherry, where spiritual seekers find peace and introspection.</p>
+    <img src="images/ashram.png" alt="Ashram in nature" class="ashram-img" />
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky Navbar
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 100);
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.textContent = '↑ Top';
+    backToTopBtn.id = 'backToTop';
+    document.body.appendChild(backToTopBtn);
+    
+    backToTopBtn.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 10px 16px;
+      font-size: 16px;
+      border: none;
+      background-color: #b68d40;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+    `;
+    
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Scroll Reveal Animations
+    const revealElements = document.querySelectorAll('.intro, .temple-card, .ashrams');
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    revealElements.forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+    
+    // FAQ Accordion (if there's a section for it)
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('active');
+        const answer = q.nextElementSibling;
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+    </script>
+    
+
+</body>
+</html>

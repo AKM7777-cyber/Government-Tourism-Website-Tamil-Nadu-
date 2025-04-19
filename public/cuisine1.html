@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Cuisines of the Tamil Land</title>
+        <link rel="stylesheet" href="cuisine1.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    </head>
+      
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Cuisines of the Tamil Land</h1>
+      <p>Discover the timeless flavors of Tamil Nadu</p>
+    </div>
+  </header>
+
+  <section class="content">
+    <h2>Rich History of Tamil Cuisine</h2>
+    <p>Tamil cuisine is a blend of ancient traditions and modern flavors. Dating back thousands of years, the food of Tamil Nadu reflects a rich cultural heritage passed down through generations. Meals are typically served on banana leaves, symbolizing purity and sustainability.</p>
+    <img src="images/traditionalmeal.jpg" alt="Traditional Tamil Meal" />
+
+    <h2>Iconic Dishes You Must Try</h2>
+    <p>Some of the most beloved dishes include:</p>
+    <ul>
+      <li><strong>Sambar:</strong> A lentil-based vegetable stew with tamarind broth.</li>
+      <li><strong>Rasam:</strong> A tangy, peppery soup served with rice.</li>
+      <li><strong>Kootu & Poriyal:</strong> Vegetable curries cooked with coconut or lentils.</li>
+      <li><strong>Dosa & Idli:</strong> Fermented rice and lentil-based breakfast items.</li>
+    </ul>
+    <img src="images/dosasambhar.webp" alt="Dosa with Sambar" />
+
+    <h2>Unique Cooking Techniques</h2>
+    <p>Food is traditionally prepared in clay pots, cooked over wood-fired stoves, and seasoned with mustard seeds, curry leaves, and a mix of freshly ground masalas. Tamil Nadu also boasts distinct food varieties from each region—Chettinad being world-famous for its spicy meat dishes.</p>
+
+    <img src="images/chettinad.jpeg" alt="Chettinad Chicken Curry" />
+
+    <h2>Conclusion</h2>
+    <p>Exploring Tamil Nadu through its food is a journey into its culture, history, and hospitality. Whether you're vegetarian or non-vegetarian, there's something for every palate.</p>
+  </section>
+
+  
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+<button id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+  // Fade-in Animation on Scroll
+  document.addEventListener('DOMContentLoaded', function () {
+    const faders = document.querySelectorAll('section, .hero, .site-footer, img, h2, p, ul');
+
+    const options = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(element => {
+      element.classList.add('fade-in');
+      observer.observe(element);
+    });
+  });
+
+  // Back to Top Button Functionality
+  const backToTop = document.getElementById("backToTop");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  };
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</body>
+</html>

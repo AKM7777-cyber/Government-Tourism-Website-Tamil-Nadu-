@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hiking in Tamil Nadu</title>
+  <link rel="stylesheet" href="hiking.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Hiking Trails of Tamil Nadu</h1>
+      <p>Explore serene landscapes and misty mountains</p>
+    </div>
+  </header>
+
+  <section class="intro fade-in">
+    <div class="content">
+      <h2>Reconnect with Nature</h2>
+      <p>
+        Tamil Nadu offers a diverse range of hiking trails — from mist-covered hills to dense forest paths and heritage trails that tell stories of ancient civilizations.
+        Whether you're a casual walker or a seasoned trekker, you'll find a trail here that soothes the soul and challenges your senses.
+      </p>
+      <p>
+        Experience the sunrise from a mountaintop, walk alongside cascading waterfalls, and trek through lush green valleys. Adventure and tranquility await you on every path.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/hiking.avif" alt="Hiking in Tamil Nadu">
+    </div>
+  </section>
+
+  <section class="trails fade-in">
+    <h2>Popular Hiking Trails</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1508264165352-258db2ebd59b?auto=format&fit=crop&w=600&q=80" alt="Kodaikanal Trek">
+        <h3>Kodaikanal Forest Trails</h3>
+        <p>
+          Walk through pine forests, meadows, and misty hills. Kodaikanal offers moderate hikes that are perfect for a peaceful day in the wild.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/westernghats.jpg" alt="Western Ghats">
+        <h3>Western Ghats Ranges</h3>
+        <p>
+          Trekking through the UNESCO-listed Western Ghats offers rich biodiversity and panoramic views of valleys, rivers, and tea plantations.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/yelagiri.jpg" alt="Yelagiri Hills">
+        <h3>Yelagiri Hills</h3>
+        <p>
+          A beginner-friendly destination with light trails, local villages, and a pleasant climate all year round. Great for weekend adventures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question">What should I pack for hiking in Tamil Nadu?<i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Pack breathable clothes, hiking shoes, water, snacks, sunscreen, raincoat, and a first-aid kit. Some trails may require permits, so check beforehand.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Are guides available on these trails?<i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Yes, many trails offer guided treks through local tour operators. It’s advisable to have a guide for longer or forested routes.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">When is the best time to hike?<i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Winter and post-monsoon seasons (November to March) are ideal due to pleasant weather and clear views.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fade in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    const faqBtns = document.querySelectorAll(".faq-question");
+    faqBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector("i");
+        answer.classList.toggle("open");
+        icon.classList.toggle("rotate");
+      });
+    });
+
+    // Ensure animations trigger on first load
+    window.addEventListener('load', () => {
+      fadeEls.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

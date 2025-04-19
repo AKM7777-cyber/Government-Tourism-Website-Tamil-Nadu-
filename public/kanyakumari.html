@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanyakumari - Where Oceans Meet</title>
+  <link rel="stylesheet" href="kanyakumari.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle"><i class="fas fa-moon"></i></button>
+
+  <header class="kanyakumari-hero sticky">
+    <div class="overlay">
+      <h1>Kanyakumari</h1>
+      <p>Where the Bay of Bengal, Arabian Sea & Indian Ocean Converge</p>
+    </div>
+  </header>
+
+  <section class="intro scroll-fade">
+    <div class="intro-text">
+      <p>
+        Kanyakumari, located at the southernmost tip of India, is a place of spiritual significance, cultural fusion, and breathtaking natural beauty.
+        It's the only place where you can witness the sunrise and sunset from the same beach.
+      </p>
+    </div>
+    <div class="intro-image">
+      <img src="images/Kanyakumari.jpg" alt="Kanyakumari view" />
+    </div>
+  </section>
+
+  <section class="highlights scroll-fade">
+    <h2>Top Attractions</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/rockmemorial.webp" alt="Vivekananda Rock" />
+        <h3>Vivekananda Rock Memorial</h3>
+        <p>A sacred monument built in honor of Swami Vivekananda, located on a rocky island just off the coast.</p>
+      </div>
+      <div class="card">
+        <img src="images/thiruvalluvar.jpg" alt="Thiruvalluvar Statue" />
+        <h3>Thiruvalluvar Statue</h3>
+        <p>This towering statue of the Tamil poet Thiruvalluvar stands majestically beside the rock memorial.</p>
+      </div>
+      <div class="card">
+        <img src="images/sunsetview.jpg" alt="Sunset Viewpoint" />
+        <h3>Sunset View Point</h3>
+        <p>One of the most mesmerizing sunset views in India—don’t miss the colors over the tri-sea confluence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="culture scroll-fade">
+    <h2>Culture & Experience</h2>
+    <p>Kanyakumari is home to centuries-old temples, vibrant coastal festivals, and a harmonious mix of different cultures and faiths.</p>
+  </section>
+
+  <section class="food scroll-fade">
+    <h2>Local Delicacies</h2>
+    <p>Enjoy the coastal flavors with dishes like fish curry, coconut-based gravies, banana chips, and southern-style filter coffee served with a view of the sea breeze.</p>
+  </section>
+
+  <section class="stay scroll-fade">
+    <h2>Where to Stay</h2>
+    <p>Kanyakumari offers a variety of accommodations from resorts to budget stays close to all key attractions.</p>
+  </section>
+
+  <section class="shopping scroll-fade">
+    <h2>Shopping</h2>
+    <p>Local markets in Kanyakumari are full of handicrafts, seashell artifacts, jewelry, and traditional textiles—perfect for souvenirs.</p>
+  </section>
+
+  <section class="travel-tips scroll-fade">
+    <h2>Travel Tips</h2>
+    <ul>
+      <li>Best time to visit: October to March.</li>
+      <li>Carry light cotton clothes, sunscreen, and sunglasses.</li>
+      <li>Try catching both sunrise and sunset from the beach.</li>
+      <li>Use local taxis, autos, or walk to nearby places.</li>
+    </ul>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Features -->
+  <script>
+    // Scroll Animation
+    const faders = document.querySelectorAll('.scroll-fade');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById("darkModeToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>

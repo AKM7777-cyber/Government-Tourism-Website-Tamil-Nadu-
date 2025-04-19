@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eat & Drink in Tamil Nadu</title>
+  <link rel="stylesheet" href="eatdrink.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Add this line inside <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Eat & Drink</h1>
+      <p>Spice, Flavor, Tradition – Taste Tamil Nadu</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <img src="images/thali.webp" alt="Tamil Nadu Thali">
+    <div class="intro-text">
+      <h2>Flavors of the South</h2>
+      <p>Tamil Nadu cuisine is a celebration of rich spices, tangy tamarind, coconut, and rice. From roadside idli stalls to five-star Chettinad platters, the state offers a delicious spread for every foodie.</p>
+    </div>
+  </section>
+
+  <section class="specials">
+    <h2>Must-Try Dishes</h2>
+    <div class="dishes">
+      <div class="dish-card">
+        <img src="images/idlisambhar.jpg" alt="Idli Sambar">
+        <h3>Idli & Sambar</h3>
+        <p>A comforting breakfast combo made of steamed rice cakes and lentil stew.</p>
+      </div>
+      <div class="dish-card">
+        <img src="images/chettinad.jpeg" alt="Chettinad Chicken">
+        <h3>Chettinad Chicken</h3>
+        <p>A fiery specialty loaded with pepper, fennel, and South Indian spices.</p>
+      </div>
+      <div class="dish-card">
+        <img src="images/filtercoffee.jpeg" alt="Filter Coffee">
+        <h3>Filter Coffee</h3>
+        <p>Strong, frothy and served in traditional dabara set—unmissable in Tamil Nadu!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="markets">
+    <h2>Where to Eat</h2>
+    <ul>
+      <li><strong>Murugan Idli Shop</strong> – Authentic tiffin in Chennai & Madurai</li>
+      <li><strong>The Bangala</strong> – A Chettinad cuisine gem in Karaikudi</li>
+      <li><strong>Banana Leaf Meals</strong> – Served at most messes, especially in Coimbatore</li>
+    </ul>
+  </section>
+
+  <section class="tips">
+    <h2>Foodie Tips</h2>
+    <ul>
+      <li>Try meals served on banana leaves—they’re traditional and eco-friendly.</li>
+      <li>Don’t miss regional sweets like Mysore Pak and Jangiri.</li>
+      <li>Street food is safe in busy markets—just follow the locals.</li>
+    </ul>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to Top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- JavaScript -->
+  <script>
+    // Scroll Animations
+    const faders = document.querySelectorAll("section");
+
+    const appearOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("fade-in");
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(section => {
+      appearOnScroll.observe(section);
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // FAQ Accordion for Foodie Tips
+    const tipsSection = document.querySelector('.tips ul');
+    if (tipsSection) {
+      const items = tipsSection.querySelectorAll("li");
+      items.forEach(item => {
+        item.style.cursor = "pointer";
+        const original = item.textContent;
+        item.addEventListener("click", () => {
+          item.classList.toggle("expanded");
+          if (item.classList.contains("expanded")) {
+            item.innerHTML = "&#9660; " + original;
+          } else {
+            item.innerHTML = "&#9654; " + original;
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

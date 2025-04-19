@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Tourism - Tamil Nadu</title>
+  <link rel="stylesheet" href="medical.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Add this line inside <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+  <header class="medical-hero">
+    <div class="overlay">
+      <h1>Medical Tourism</h1>
+      <p>World-Class Healthcare in Tamil Nadu</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="intro-text">
+      <h2>Why Tamil Nadu?</h2>
+      <p>Tamil Nadu has emerged as a leading destination for medical tourism in India, offering affordable, top-quality healthcare across a wide range of specialties. Patients from around the globe come here for treatments, surgeries, and wellness therapies.</p>
+    </div>
+    <img src="images/modern.jpg" alt="Modern hospital">
+  </section>
+
+  <section class="hospitals">
+    <h2>Top Hospitals</h2>
+    <div class="hospital-grid">
+      <div class="hospital-card">
+        <img src="images/apollo.webp" alt="Apollo Hospital">
+        <h3>Apollo Hospitals, Chennai</h3>
+        <p>Pioneers in Indian healthcare with international accreditation, specializing in transplants, oncology, cardiology, and more.</p>
+      </div>
+      <div class="hospital-card">
+        <img src="images/mgm.webp" alt="MGM Healthcare">
+        <h3>MGM Healthcare</h3>
+        <p>Known for advanced surgical care and patient-centered services in a modern, tech-savvy environment.</p>
+      </div>
+      <div class="hospital-card">
+        <img src="images/miot.jpeg" alt="MIOT International">
+        <h3>MIOT International</h3>
+        <p>A multi-specialty hospital attracting global patients for orthopedics, cardiology, and robotic surgeries.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>Popular Treatments</h2>
+    <ul>
+      <li>Heart surgeries (bypass, valve replacement)</li>
+      <li>Organ transplants (kidney, liver)</li>
+      <li>Orthopedic procedures (joint replacement, spine)</li>
+      <li>Cosmetic & reconstructive surgeries</li>
+      <li>Cancer treatments and therapy</li>
+    </ul>
+  </section>
+
+  <section class="wellness">
+    <h2>Ayurveda & Recovery</h2>
+    <p>Post-operative and preventive wellness is often supported by Ayurveda and yoga-based therapies in serene centers across Tamil Nadu like Coimbatore and Kanyakumari.</p>
+    <img src="images/ayurveda.webp" alt="Ayurveda therapy">
+  </section>
+
+  <section class="travel-tips">
+    <h2>Before You Travel</h2>
+    <ul>
+      <li>Carry your complete medical history and prescriptions.</li>
+      <li>Contact hospitals in advance to schedule appointments and obtain estimates.</li>
+      <li>Check for medical visa requirements and travel insurance.</li>
+      <li>Many hospitals provide interpreter and visa assistance services.</li>
+    </ul>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Effect
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('reveal-visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('reveal');
+      observer.observe(section);
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.className = 'back-to-top';
+    document.body.appendChild(backToTopBtn);
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    </script>
+    
+</body>
+</html>

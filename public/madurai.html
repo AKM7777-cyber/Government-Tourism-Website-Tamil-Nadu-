@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Madurai - Tamil Nadu Tourism</title>
+  <link rel="stylesheet" href="madurai.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header id="navbar">
+    <nav>
+      <h2>Madurai</h2>
+      <button id="darkToggle"><i class="fas fa-moon"></i></button>
+    </nav>
+  </header>
+
+  <!-- Back to Top -->
+  <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <h2 class="subheading">The Ancient City of Temples & Culture</h2>
+
+  </section>
+
+  <!-- About Section -->
+  <section class="about fade-in">
+    <div class="about-text">
+      <h2>About Madurai</h2>
+      <p>Known as the cultural capital of Tamil Nadu, Madurai is famous for its stunning Meenakshi Amman Temple, vibrant bazaars, and rich Tamil heritage dating back over 2,500 years.</p>
+    </div>
+    <div class="about-img">
+      <img src="images/meenakshi.jpg" alt="Meenakshi Temple">
+    </div>
+  </section>
+
+  <!-- Attractions Carousel -->
+  <section class="attractions fade-in">
+    <h2>Top Attractions</h2>
+    <div class="carousel">
+      <div class="slide active">
+        <img src="images/thirumalai.webp" alt="Thirumalai Nayakar Mahal">
+        <h3>Thirumalai Nayakar Mahal</h3>
+        <p>A 17th-century palace with Indo-Saracenic architecture and dramatic lighting shows.</p>
+      </div>
+      <div class="slide">
+        <img src="images/Gandhimuseum.jpg" alt="Gandhi Museum">
+        <h3>Gandhi Memorial Museum</h3>
+        <p>Explore Mahatma Gandhi’s life and preserved artifacts in this historic museum.</p>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Culture & Festivals -->
+  <section class="culture fade-in">
+    <h2>Culture & Festivals</h2>
+    <p>The Chithirai Festival features divine wedding reenactments, traditional music, and Bharatanatyam performances.</p>
+  </section>
+
+  <!-- Stay & Shopping -->
+  <section class="info fade-in">
+    <div class="info-box">
+      <h2>Where to Stay</h2>
+      <p>Stay at The Gateway Hotel, Heritage Madurai, or budget places near the temple area.</p>
+    </div>
+    <div class="info-box">
+      <h2>Shopping</h2>
+      <p>Buy cotton sarees, brass lamps, jasmine garlands & temple souvenirs from Pudumandapam Market.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="faq fade-in">
+    <h2>Travel Tips</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">Best time to visit</button>
+        <div class="accordion-content">October to March offers pleasant weather and festive celebrations.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">How to explore?</button>
+        <div class="accordion-content">The city is walkable with autos and cabs available for longer trips.</div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">Local customs</button>
+        <div class="accordion-content">Respect temple rules, remove footwear, and dress modestly.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <h3>Tamil Taste Trails</h3>
+      <p>Discover the flavors of Tamil Nadu – one dish at a time.</p>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Section -->
+  <script>
+    // Sticky Navbar
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('sticky', window.scrollY > 10);
+    });
+
+    // Back to Top
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function () {
+      backToTop.style.display = window.scrollY > 100 ? "block" : "none";
+    };
+    backToTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+    // Carousel
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    document.querySelector('.next').onclick = () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    };
+    document.querySelector('.prev').onclick = () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    };
+
+    // Scroll Animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+        button.classList.toggle('open');
+      });
+    });
+
+  </script>
+</body>
+</html>

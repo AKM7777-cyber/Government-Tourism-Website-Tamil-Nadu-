@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coimbatore - Manchester of South India</title>
+  <link rel="stylesheet" href="coimbatore.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="coimbatore-hero">
+    <div class="overlay">
+      <h1>Coimbatore</h1>
+      <p>The Western Ghats Gateway</p>
+    </div>
+  </header>
+
+  <section class="intro reveal">
+    <div class="text">
+      <h2>About Coimbatore</h2>
+      <p>Known as the Manchester of South India, Coimbatore is a bustling city nestled at the foothills of the Western Ghats. It's an industrial hub, but also a gateway to nature and spirituality with serene landscapes.</p>
+    </div>
+    <img src="images/westernghats.jpg" alt="Western Ghats Coimbatore" />
+  </section>
+
+  <section class="highlights reveal">
+    <h2>Top Attractions</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/shiva.webp" alt="Adiyogi" />
+        <h3>Adiyogi Shiva Statue</h3>
+        <p>A majestic 112-foot statue surrounded by tranquil hills and spiritual calm, part of the Isha Yoga Center.</p>
+      </div>
+      <div class="card">
+        <img src="images/madhurmalai.webp" alt="Temple" />
+        <h3>Marudhamalai Temple</h3>
+        <p>A beautiful hill temple dedicated to Lord Murugan, offering panoramic views and a peaceful retreat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="culture reveal">
+    <h2>Culture and Nature</h2>
+    <p>Coimbatore is a balance of textile tradition, engineering brilliance, and eco-friendly living. Explore Kovai Kutralam Falls and enjoy trekking or plantation visits nearby.</p>
+  </section>
+
+  <section class="tips reveal">
+    <h2>Where to Stay</h2>
+    <p>Luxurious to budget-friendly stays are available across Avinashi Road and Race Course—well-connected and green.</p>
+    <h2>Shopping</h2>
+    <p>Buy textiles, cotton sarees, motor parts, and handicrafts. Visit Brookefields Mall and Town Hall markets.</p>
+    <h2>Travel Tips</h2>
+    <ul class="faq">
+      <li><button class="accordion">Weather advice</button><div class="panel">Weather is moderate—pack light cottons.</div></li>
+      <li><button class="accordion">Best time to visit</button><div class="panel">Visit early mornings for hill treks or Isha Foundation events.</div></li>
+      <li><button class="accordion">Local transport</button><div class="panel">Use autos or public buses for city travel—affordable and frequent.</div></li>
+    </ul>
+  </section>
+
+  <button id="backToTop" title="Back to top">↑</button>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll(".reveal");
+  
+    function revealOnScroll() {
+      for (let el of reveals) {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      }
+    }
+  
+    window.addEventListener("scroll", revealOnScroll);
+  
+    // 🛠️ Fix: trigger on load to avoid delay
+    window.dispatchEvent(new Event("scroll"));
+  
+    // Back to Top Button
+    const backToTopBtn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    backToTopBtn.onclick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  
+    // Accordion for FAQs
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surfing in Tamil Nadu</title>
+  <link rel="stylesheet" href="surfing.css" />
+  <!-- Add this line inside <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Surfing in Tamil Nadu</h1>
+      <p>Ride the waves, embrace the thrill</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="text">
+      <h2>Catch the Perfect Wave</h2>
+      <p>
+        Tamil Nadu is fast becoming a surfer's paradise. With its pristine coastline, moderate swells, and warm waters of the Bay of Bengal, it’s an ideal destination for both beginners and seasoned surfers.
+      </p>
+      <p>
+        Explore the golden beaches, feel the salt breeze in your hair, and learn the art of riding waves with professional surf schools spread across the coast.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/surfing2.jpg" alt="Surfing Tamil Nadu" />
+    </div>
+  </section>
+
+  <section class="spots">
+    <h2>Top Surfing Spots</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Covelong Surf">
+        <h3>Covelong (Kovalam)</h3>
+        <p>
+          Just south of Chennai, Covelong is the most popular surfing spot in Tamil Nadu. Known for consistent waves and a chill surf culture.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/surfing3.jpeg" alt="Mahabalipuram Surf">
+        <h3>Mahabalipuram</h3>
+        <p>
+          This ancient town offers a mix of heritage and surf. Waves here are perfect for intermediate surfers looking for a mellow ride.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/surfing4.avif" alt="Manapad Surf">
+        <h3>Manapad</h3>
+        <p>
+          A hidden gem on the southern coast, Manapad is ideal for adventurous surfers looking to avoid crowds and explore new breaks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Is surfing safe for beginners?</div>
+        <div class="faq-answer">Yes! Tamil Nadu's beaches have options for all skill levels. Instructors and lifeguards are present at popular surf spots.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do I need to bring my own gear?</div>
+        <div class="faq-answer">No. Most surfing schools and beaches offer rental equipment including boards and safety gear.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">When is the best time to surf in Tamil Nadu?</div>
+        <div class="faq-answer">The ideal surfing season is from June to September when the waves are consistent and the weather is favorable.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Tamil Taste Trails</h3>
+        <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Add this at the bottom of surfing.html, before the closing </body> -->
+<script>
+
+  
+  // FAQ accordion (if added later)
+  document.querySelectorAll('.faq-question').forEach((question) => {
+    question.addEventListener('click', () => {
+      question.classList.toggle('active');
+      const answer = question.nextElementSibling;
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+  
+  // Back to top button
+  const topBtn = document.createElement('button');
+  topBtn.innerText = "↑";
+  topBtn.id = "topBtn";
+  document.body.appendChild(topBtn);
+  
+  topBtn.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 12px 18px;
+    font-size: 18px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  `;
+  
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+  
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Apply .hidden to all animatable elements first
+  document.querySelectorAll('.card, .intro .text, .intro .image, .faq-section').forEach(el => {
+    el.classList.add('hidden');
+  });
+
+  // Observe elements for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // Observe after page fully loads
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+  });
+  </script>
+  
+</body>
+</html>

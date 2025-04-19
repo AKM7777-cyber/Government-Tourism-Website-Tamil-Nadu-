@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parasailing in Tamil Nadu</title>
+  <link rel="stylesheet" href="parasailing.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<header class="hero fade-in">
+  <div class="overlay">
+    <h1>Parasailing in Tamil Nadu</h1>
+    <p>Fly high above the coastlines, feel the rush, and soak in the views of a lifetime.</p>
+  </div>
+</header>
+
+<main class="content">
+
+  <section class="intro fade-in">
+    <h2>Soar Like a Bird</h2>
+    <p>Tamil Nadu’s coastal stretches offer some of the most exhilarating parasailing experiences. Whether you're a first-timer or an adrenaline junkie, the sea breeze and vibrant views will lift your spirits.</p>
+    <img src="images/sunsetparasailing.webp" alt="Parasailing on sunset beach">
+  </section>
+
+  <section class="spots fade-in">
+    <h2>Top Spots for Parasailing</h2>
+
+    <div class="spot-card">
+      <img src="images/parasailingchennai.jpg" alt="Chennai Beach Parasailing">
+      <div>
+        <h3>Marina Beach, Chennai</h3>
+        <p>One of the most famous locations for parasailing, Marina Beach offers trained instructors, gear rentals, and stunning sunset views.</p>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <img src="images/parasailingariyaman.jpeg" alt="Rameswaram Bay Parasailing">
+      <div>
+        <h3>Ariyaman Beach, Rameswaram</h3>
+        <p>Experience serenity and thrill combined on the clean beaches of Rameswaram. The clear waters offer perfect conditions for aerial fun.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tips fade-in">
+    <h2>Things to Know Before You Go</h2>
+    <ul>
+      <li>🪂 Always check weather conditions beforehand</li>
+      <li>👕 Wear light and comfortable clothing</li>
+      <li>🎒 Carry minimal essentials</li>
+      <li>✅ Book with certified operators for safety</li>
+      <li>📸 Keep a GoPro for unforgettable views</li>
+    </ul>
+  </section>
+
+  <section class="gallery fade-in">
+    <h2>Incredible Views from Above</h2>
+    <div class="gallery-grid">
+      <img src="images/seaparasailing.jpg" alt="Sea parasailing">
+      <img src="images/tandemparasailing.jpg" alt="Tandem parasailing ride">
+      <img src="images/aerialcoastline.webp" alt="Aerial coastline view">
+    </div>
+  </section>
+
+  <section class="faq fade-in">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question">Is parasailing safe in Tamil Nadu?</button>
+      <div class="faq-answer">
+        <p>Yes, it's safe when done through certified operators who follow all safety protocols. Always check weather conditions before flying.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do I need to know swimming?</button>
+      <div class="faq-answer">
+        <p>No, parasailing is done with a life jacket, and you don’t need to know swimming. Just follow safety instructions.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the best time for parasailing?</button>
+      <div class="faq-answer">
+        <p>The best time is from November to March when the weather is cooler and winds are favorable along Tamil Nadu's coast.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer fade-in">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h3>Tamil Taste Trails</h3>
+      <p>Discover the rich flavors of Tamil Nadu – one dish at a time.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Tamil Taste Trails. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- JavaScript -->
+<script>
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('appear');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Back to Top Button
+const backToTop = document.getElementById("backToTop");
+window.onscroll = function() {
+  backToTop.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+};
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// FAQ Accordion
+const faqButtons = document.querySelectorAll('.faq-question');
+faqButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    const isOpen = answer.style.maxHeight;
+
+    document.querySelectorAll('.faq-answer').forEach(ans => {
+      ans.style.maxHeight = null;
+      ans.style.paddingTop = 0;
+      ans.style.paddingBottom = 0;
+    });
+
+    if (!isOpen) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      answer.style.paddingTop = "1rem";
+      answer.style.paddingBottom = "1rem";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
